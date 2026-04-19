@@ -39,5 +39,41 @@ namespace negocio
                 datos.cerrarConexion();
             }
         }
+
+        public void guardar(Articulo articulo) {
+            AccesoDatos datos = new AccesoDatos();
+
+            try {
+                datos.setearConsulta($"INSERT INTO ARTICULOS VALUES ('{articulo.Codigo}', '{articulo.Nombre}', '{articulo.Descripcion}', {articulo.Marca.Id}, {articulo.Categoria.Id}, {articulo.Precio})");
+                datos.ejecutarAccion();
+
+            } catch (Exception) {
+                throw;
+
+            } finally {
+                datos.cerrarConexion();
+            }
+        }
+
+
+        public int obtenerIdArticulo(Articulo articulo) {
+            AccesoDatos datos = new AccesoDatos();
+
+            try {
+                datos.setearConsulta($"SELECT Id FROM ARTICULOS WHERE Codigo = '{articulo.Codigo}'");
+                datos.ejecutarLectura();
+
+                if (datos.Lector.Read()) {
+                    return (int)datos.Lector["Id"];
+
+                } else return 0;
+
+            } catch (Exception ex) {
+                throw ex;
+
+            } finally {
+                datos.cerrarConexion();
+            }
+        }
     }
 }

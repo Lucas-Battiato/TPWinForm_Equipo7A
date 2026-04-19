@@ -10,9 +10,7 @@ namespace dominio
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public decimal Precio { get; set; }
-
-        // las otras clases 
-        // public Marca Marca { get; set; }
-        // public Categoria Categoria { get; set; }
+        public Marca Marca { get; set; }
+        public Categoria Categoria { get; set; }
     }
 }

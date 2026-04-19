@@ -25,10 +25,10 @@ namespace TPWinForm_Equipo7A {
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.lbCodigo = new System.Windows.Forms.Label();
             this.tbCodigo = new System.Windows.Forms.TextBox();
             this.gbDatosArticulo = new System.Windows.Forms.GroupBox();
@@ -43,14 +43,13 @@ namespace TPWinForm_Equipo7A {
             this.tbPrecio = new System.Windows.Forms.TextBox();
             this.lbPrecio = new System.Windows.Forms.Label();
             this.gbImágenes = new System.Windows.Forms.GroupBox();
+            this.tbImagenUrl = new System.Windows.Forms.TextBox();
             this.btnAgregarImagen = new System.Windows.Forms.Button();
             this.dgvURLs = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ImagenUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pbImagen = new System.Windows.Forms.PictureBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.gbDatosArticulo.SuspendLayout();
             this.gbImágenes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvURLs)).BeginInit();
@@ -99,7 +98,7 @@ namespace TPWinForm_Equipo7A {
             this.gbDatosArticulo.Location = new System.Drawing.Point(25, 21);
             this.gbDatosArticulo.Name = "gbDatosArticulo";
             this.gbDatosArticulo.Size = new System.Drawing.Size(552, 230);
-            this.gbDatosArticulo.TabIndex = 2;
+            this.gbDatosArticulo.TabIndex = 0;
             this.gbDatosArticulo.TabStop = false;
             this.gbDatosArticulo.Text = "Datos del artículo";
             // 
@@ -113,7 +112,7 @@ namespace TPWinForm_Equipo7A {
             this.cbCategoria.Location = new System.Drawing.Point(395, 175);
             this.cbCategoria.Name = "cbCategoria";
             this.cbCategoria.Size = new System.Drawing.Size(134, 28);
-            this.cbCategoria.TabIndex = 10;
+            this.cbCategoria.TabIndex = 11;
             // 
             // lbCategoria
             // 
@@ -123,7 +122,7 @@ namespace TPWinForm_Equipo7A {
             this.lbCategoria.Location = new System.Drawing.Point(298, 178);
             this.lbCategoria.Name = "lbCategoria";
             this.lbCategoria.Size = new System.Drawing.Size(91, 20);
-            this.lbCategoria.TabIndex = 9;
+            this.lbCategoria.TabIndex = 10;
             this.lbCategoria.Text = "* Categoria:";
             // 
             // cbMarca
@@ -136,7 +135,7 @@ namespace TPWinForm_Equipo7A {
             this.cbMarca.Location = new System.Drawing.Point(132, 175);
             this.cbMarca.Name = "cbMarca";
             this.cbMarca.Size = new System.Drawing.Size(134, 28);
-            this.cbMarca.TabIndex = 8;
+            this.cbMarca.TabIndex = 9;
             // 
             // lbMarca
             // 
@@ -146,7 +145,7 @@ namespace TPWinForm_Equipo7A {
             this.lbMarca.Location = new System.Drawing.Point(59, 178);
             this.lbMarca.Name = "lbMarca";
             this.lbMarca.Size = new System.Drawing.Size(67, 20);
-            this.lbMarca.TabIndex = 6;
+            this.lbMarca.TabIndex = 8;
             this.lbMarca.Text = "* Marca:";
             // 
             // tbDescripcion
@@ -159,7 +158,7 @@ namespace TPWinForm_Equipo7A {
             this.tbDescripcion.Multiline = true;
             this.tbDescripcion.Name = "tbDescripcion";
             this.tbDescripcion.Size = new System.Drawing.Size(397, 54);
-            this.tbDescripcion.TabIndex = 5;
+            this.tbDescripcion.TabIndex = 7;
             // 
             // lbDescripcion
             // 
@@ -169,7 +168,7 @@ namespace TPWinForm_Equipo7A {
             this.lbDescripcion.Location = new System.Drawing.Point(32, 110);
             this.lbDescripcion.Name = "lbDescripcion";
             this.lbDescripcion.Size = new System.Drawing.Size(94, 20);
-            this.lbDescripcion.TabIndex = 4;
+            this.lbDescripcion.TabIndex = 6;
             this.lbDescripcion.Text = "Descripción:";
             // 
             // tbNombre
@@ -181,7 +180,7 @@ namespace TPWinForm_Equipo7A {
             this.tbNombre.Location = new System.Drawing.Point(132, 70);
             this.tbNombre.Name = "tbNombre";
             this.tbNombre.Size = new System.Drawing.Size(397, 27);
-            this.tbNombre.TabIndex = 3;
+            this.tbNombre.TabIndex = 5;
             // 
             // lbNombre
             // 
@@ -191,7 +190,7 @@ namespace TPWinForm_Equipo7A {
             this.lbNombre.Location = new System.Drawing.Point(44, 72);
             this.lbNombre.Name = "lbNombre";
             this.lbNombre.Size = new System.Drawing.Size(82, 20);
-            this.lbNombre.TabIndex = 2;
+            this.lbNombre.TabIndex = 4;
             this.lbNombre.Text = "* Nombre:";
             // 
             // tbPrecio
@@ -203,7 +202,7 @@ namespace TPWinForm_Equipo7A {
             this.tbPrecio.Location = new System.Drawing.Point(395, 32);
             this.tbPrecio.Name = "tbPrecio";
             this.tbPrecio.Size = new System.Drawing.Size(134, 27);
-            this.tbPrecio.TabIndex = 1;
+            this.tbPrecio.TabIndex = 3;
             // 
             // lbPrecio
             // 
@@ -213,12 +212,12 @@ namespace TPWinForm_Equipo7A {
             this.lbPrecio.Location = new System.Drawing.Point(309, 34);
             this.lbPrecio.Name = "lbPrecio";
             this.lbPrecio.Size = new System.Drawing.Size(80, 20);
-            this.lbPrecio.TabIndex = 0;
+            this.lbPrecio.TabIndex = 2;
             this.lbPrecio.Text = "* Precio: $";
             // 
             // gbImágenes
             // 
-            this.gbImágenes.Controls.Add(this.textBox1);
+            this.gbImágenes.Controls.Add(this.tbImagenUrl);
             this.gbImágenes.Controls.Add(this.btnAgregarImagen);
             this.gbImágenes.Controls.Add(this.dgvURLs);
             this.gbImágenes.Controls.Add(this.pbImagen);
@@ -228,9 +227,20 @@ namespace TPWinForm_Equipo7A {
             this.gbImágenes.Location = new System.Drawing.Point(25, 267);
             this.gbImágenes.Name = "gbImágenes";
             this.gbImágenes.Size = new System.Drawing.Size(552, 200);
-            this.gbImágenes.TabIndex = 11;
+            this.gbImágenes.TabIndex = 1;
             this.gbImágenes.TabStop = false;
             this.gbImágenes.Text = "Imágenes del artículo";
+            // 
+            // tbImagenUrl
+            // 
+            this.tbImagenUrl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(45)))));
+            this.tbImagenUrl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbImagenUrl.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.tbImagenUrl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(191)))), ((int)(((byte)(174)))));
+            this.tbImagenUrl.Location = new System.Drawing.Point(190, 153);
+            this.tbImagenUrl.Name = "tbImagenUrl";
+            this.tbImagenUrl.Size = new System.Drawing.Size(273, 27);
+            this.tbImagenUrl.TabIndex = 1;
             // 
             // btnAgregarImagen
             // 
@@ -242,64 +252,61 @@ namespace TPWinForm_Equipo7A {
             this.btnAgregarImagen.Location = new System.Drawing.Point(469, 153);
             this.btnAgregarImagen.Name = "btnAgregarImagen";
             this.btnAgregarImagen.Size = new System.Drawing.Size(62, 27);
-            this.btnAgregarImagen.TabIndex = 14;
+            this.btnAgregarImagen.TabIndex = 2;
             this.btnAgregarImagen.Text = "Agregar";
             this.btnAgregarImagen.UseVisualStyleBackColor = false;
+            this.btnAgregarImagen.Click += new System.EventHandler(this.btnAgregarImagen_Click);
             // 
             // dgvURLs
             // 
+            this.dgvURLs.AllowUserToAddRows = false;
             this.dgvURLs.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(191)))), ((int)(((byte)(174)))));
-            this.dgvURLs.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle33;
+            this.dgvURLs.AllowUserToResizeColumns = false;
+            this.dgvURLs.AllowUserToResizeRows = false;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(191)))), ((int)(((byte)(174)))));
+            this.dgvURLs.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvURLs.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(45)))));
             this.dgvURLs.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvURLs.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvURLs.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(34)))));
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(191)))), ((int)(((byte)(174)))));
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvURLs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(34)))));
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(191)))), ((int)(((byte)(174)))));
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvURLs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dgvURLs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvURLs.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
             this.ImagenUrl});
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(191)))), ((int)(((byte)(174)))));
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvURLs.DefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(191)))), ((int)(((byte)(174)))));
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvURLs.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvURLs.EnableHeadersVisualStyles = false;
             this.dgvURLs.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(74)))));
             this.dgvURLs.Location = new System.Drawing.Point(190, 26);
             this.dgvURLs.Name = "dgvURLs";
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(191)))), ((int)(((byte)(174)))));
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvURLs.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
+            this.dgvURLs.ReadOnly = true;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(191)))), ((int)(((byte)(174)))));
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvURLs.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvURLs.RowHeadersVisible = false;
             this.dgvURLs.Size = new System.Drawing.Size(341, 117);
-            this.dgvURLs.TabIndex = 1;
-            // 
-            // ID
-            // 
-            this.ID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.ID.HeaderText = "#";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.ID.Width = 41;
+            this.dgvURLs.TabIndex = 0;
+            this.dgvURLs.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvURLs_CellDoubleClick);
+            this.dgvURLs.SelectionChanged += new System.EventHandler(this.dgvURLs_SelectionChanged);
             // 
             // ImagenUrl
             // 
@@ -315,6 +322,7 @@ namespace TPWinForm_Equipo7A {
             this.pbImagen.Location = new System.Drawing.Point(20, 26);
             this.pbImagen.Name = "pbImagen";
             this.pbImagen.Size = new System.Drawing.Size(154, 154);
+            this.pbImagen.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbImagen.TabIndex = 0;
             this.pbImagen.TabStop = false;
             // 
@@ -328,9 +336,10 @@ namespace TPWinForm_Equipo7A {
             this.btnCancelar.Location = new System.Drawing.Point(366, 492);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(98, 33);
-            this.btnCancelar.TabIndex = 12;
+            this.btnCancelar.TabIndex = 2;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
@@ -342,23 +351,12 @@ namespace TPWinForm_Equipo7A {
             this.btnGuardar.Location = new System.Drawing.Point(479, 492);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(98, 33);
-            this.btnGuardar.TabIndex = 13;
+            this.btnGuardar.TabIndex = 3;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(45)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(191)))), ((int)(((byte)(174)))));
-            this.textBox1.Location = new System.Drawing.Point(190, 153);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(273, 27);
-            this.textBox1.TabIndex = 11;
-            // 
-            // frmABMArticulo
+            // frmAltaArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -370,10 +368,10 @@ namespace TPWinForm_Equipo7A {
             this.Controls.Add(this.gbDatosArticulo);
             this.MaximumSize = new System.Drawing.Size(620, 580);
             this.MinimumSize = new System.Drawing.Size(620, 580);
-            this.Name = "frmABMArticulo";
+            this.Name = "frmAltaArticulo";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Alta/Modificación de artículos";
+            this.Text = "Alta de artículo";
             this.Load += new System.EventHandler(this.frmABMArticulo_Load);
             this.gbDatosArticulo.ResumeLayout(false);
             this.gbDatosArticulo.PerformLayout();
@@ -405,9 +403,8 @@ namespace TPWinForm_Equipo7A {
         private System.Windows.Forms.Button btnGuardar;
         private PictureBox pbImagen;
         private DataGridView dgvURLs;
-        private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn ImagenUrl;
         private Button btnAgregarImagen;
-        private TextBox textBox1;
+        private TextBox tbImagenUrl;
+        private DataGridViewTextBoxColumn ImagenUrl;
     }
 }

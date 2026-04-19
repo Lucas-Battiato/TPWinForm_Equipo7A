@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace negocio {
-    internal class ImagenNegocio {
+    public class ImagenNegocio {
 
         public List<Imagen> listar() {
             List<Imagen> listaImagenes = new List<Imagen>();
@@ -33,6 +33,21 @@ namespace negocio {
             } finally {
                 conector.cerrarConexion();
 
+            }
+        }
+
+        public void guardar(Imagen imagen) {
+            AccesoDatos datos = new AccesoDatos();
+
+            try {
+                datos.setearConsulta($"INSERT INTO IMAGENES VALUES ('{imagen.IdArticulo}', '{imagen.ImagenUrl}')");
+                datos.ejecutarAccion();
+
+            } catch (Exception) {
+                throw;
+
+            } finally {
+                datos.cerrarConexion();
             }
         }
     }
