@@ -28,7 +28,7 @@ namespace winform_app
         }
 
         private void agregarArticuloToolStripMenuItem_Click(object sender, EventArgs e) {
-            frmABMArticulo frmAltaArticulo = new frmABMArticulo();
+            frmAltaArticulo frmAltaArticulo = new frmAltaArticulo();
             frmAltaArticulo.ShowDialog();
         }
     }
