@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using dominio;
 using negocio;
+using TPWinForm_Equipo7A;
 
 
 namespace winform_app
@@ -24,6 +25,11 @@ namespace winform_app
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
             dgvArticulos.DataSource = negocio.Listar();
+        }
+
+        private void agregarArticuloToolStripMenuItem_Click(object sender, EventArgs e) {
+            frmABMArticulo frmAltaArticulo = new frmABMArticulo();
+            frmAltaArticulo.ShowDialog();
         }
     }
 }
