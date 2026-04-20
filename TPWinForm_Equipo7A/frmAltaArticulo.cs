@@ -30,6 +30,10 @@ namespace TPWinForm_Equipo7A {
             listaCategorias.Insert(0, new Categoria(-1, "Seleccionar...")); // Creo una categoria dummy solo para poder mostrar el texto "Seleccionar" en el combobox
             cbCategoria.DataSource = listaCategorias;
 
+            //pbImagen.SizeMode = PictureBoxSizeMode.StretchImage;
+            actualizarImagen();
+            //pbImagen.ImageLocation = "..\\..\\..\\assets\\images\\NoImageLoaded.png";
+
         }
 
 
@@ -133,6 +137,7 @@ namespace TPWinForm_Equipo7A {
                         dgvURLs.Rows.Clear();
                         lbMensajeEstado.ForeColor = Color.Green;
                         lbMensajeEstado.Text = "Articulo guardado con exito.";
+                        actualizarImagen();
 
                     } else {
                         MessageBox.Show("El código ingresado ya se encuentra registrado en el sistema.");
@@ -160,7 +165,11 @@ namespace TPWinForm_Equipo7A {
 
 
         private void actualizarImagen() {
-            pbImagen.ImageLocation = dgvURLs.CurrentRow.Cells[0].Value.ToString(); // Obtengo la URL de la fila seleccionada y la uso para el PictureBox
+            if (!(dgvURLs.CurrentRow is null)) {
+                pbImagen.ImageLocation = dgvURLs.CurrentRow.Cells[0].Value.ToString(); // Obtengo la URL de la fila seleccionada y la uso para el PictureBox
+
+            } else pbImagen.ImageLocation = "..\\..\\..\\assets\\images\\NoImageLoaded.png";
+
         }
 
 
