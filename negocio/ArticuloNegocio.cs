@@ -56,7 +56,7 @@ namespace negocio
         }
 
 
-        public int obtenerIdArticulo(Articulo articulo) {
+        public int obtenerIdArticuloPorCodigo(Articulo articulo) {
             AccesoDatos datos = new AccesoDatos();
 
             try {
