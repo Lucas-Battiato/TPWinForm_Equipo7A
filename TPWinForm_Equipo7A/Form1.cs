@@ -31,5 +31,16 @@ namespace winform_app
             frmAltaArticulo frmAltaArticulo = new frmAltaArticulo();
             frmAltaArticulo.ShowDialog();
         }
+
+        private void btnModificar_Click(object sender, EventArgs e) {
+
+            if (dgvArticulos.SelectedCells != null) {
+                frmModArticulo frmModArticulo = new frmModArticulo();
+                frmModArticulo.ShowDialog();
+
+            } else MessageBox.Show("Debe seleccionar un articulo del listado.");
+            
+
+        }
     }
 }

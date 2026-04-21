@@ -1,7 +1,7 @@
 ﻿using System.Windows.Forms;
 
 namespace TPWinForm_Equipo7A {
-    partial class frmAltaArticulo {
+    partial class frmModArticulo {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -30,7 +30,7 @@ namespace TPWinForm_Equipo7A {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAltaArticulo));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmModArticulo));
             this.lbCodigo = new System.Windows.Forms.Label();
             this.tbCodigo = new System.Windows.Forms.TextBox();
             this.gbDatosArticulo = new System.Windows.Forms.GroupBox();
@@ -332,7 +332,7 @@ namespace TPWinForm_Equipo7A {
             // pbImagen
             // 
             this.pbImagen.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbImagen.ErrorImage = ((System.Drawing.Image)(resources.GetObject("pbImagen.ErrorImage")));
+            this.pbImagen.ErrorImage = null;
             this.pbImagen.Location = new System.Drawing.Point(20, 26);
             this.pbImagen.Name = "pbImagen";
             this.pbImagen.Size = new System.Drawing.Size(154, 154);
@@ -388,7 +388,7 @@ namespace TPWinForm_Equipo7A {
             this.errorProvider.ContainerControl = this;
             this.errorProvider.Icon = ((System.Drawing.Icon)(resources.GetObject("errorProvider.Icon")));
             // 
-            // frmAltaArticulo
+            // frmModArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -402,11 +402,11 @@ namespace TPWinForm_Equipo7A {
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(620, 580);
             this.MinimumSize = new System.Drawing.Size(620, 580);
-            this.Name = "frmAltaArticulo";
+            this.Name = "frmModArticulo";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Alta de artículo";
-            this.Load += new System.EventHandler(this.frmAltaArticulo_Load);
+            this.Text = "Modificación de artículo";
+            this.Load += new System.EventHandler(this.frmModArticulo_Load);
             this.gbDatosArticulo.ResumeLayout(false);
             this.gbDatosArticulo.PerformLayout();
             this.gbImágenes.ResumeLayout(false);

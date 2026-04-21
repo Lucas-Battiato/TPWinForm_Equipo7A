@@ -12,13 +12,13 @@ using dominio;
 using negocio;
 
 namespace TPWinForm_Equipo7A {
-    public partial class frmAltaArticulo : Form {
-        public frmAltaArticulo() {
+    public partial class frmModArticulo : Form {
+        public frmModArticulo() {
             InitializeComponent();
         }
 
 
-        private void frmAltaArticulo_Load(object sender, EventArgs e) {
+        private void frmModArticulo_Load(object sender, EventArgs e) {
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
 
@@ -72,7 +72,7 @@ namespace TPWinForm_Equipo7A {
 
                 } else articulo.Codigo = tbCodigo.Text;
 
-                
+
                 if (tbPrecio.Text == "") {
                     //tbPrecio.BackColor = Color.Red;
                     errorProvider.SetError(tbPrecio, "El precio es obligatorio");

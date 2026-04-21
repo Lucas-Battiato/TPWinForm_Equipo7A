@@ -120,14 +120,14 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="agregarArticuloToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAAHUAAAB1AePCB2UAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
-        AAABT0lEQVQ4T5XTv0uXURTH8ZeVBbk0KRkNDg1uUijiEIroUkl70dDgFLY0GvgfuPgHiK6CkIu7g1D0
-        a8gUJCP6ARro4CA4KOfLeb7cHr5pvZd7n3vu+ZzPc+69tGYY77CAznrwLHqwhA8Yx0t8x3O01zeXXMUM
-        fuTmi0WsO51s4l6x3uQJvmIW1+rBgiG8wQpulYGTtNxXLrbgEp7hGHNlYB8PsJ1Wu8pgMoKPWX26lUBw
-        Of//Z/bjCm6maJzI3dz36G8CFTewiC/4hslaU88VqFjGWH3xfwTiPowW3zFfwyF2cL8K/ItAjFt5lHGh
-        BrGBiQiGwItsYkkpEJUjOdjNsR9vY3Id83nTmrZqAr+zciTHvTnAhbr7AaxjFb0pEE18iqO0HURycBuv
-        i/wGbXicTdrDL7zCFD6n7dhzB59qjv+gI19ivMiKh3ifDqJyI/kUAHhK7qykf2MAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        cgAAAHIBsYahGgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFPSURBVDhPldO/
+        S5dRFMfxl5UFuTQpGQ0ODW5SKOIQiuhSSXvR0OAUtjQa+B+4+AeIroKQi7uDUPRryBQkI/oBGujgIDgo
+        58t5vtwevmm9l3ufe+75nM9z7r20ZhjvsIDOevAserCEDxjHS3zHc7TXN5dcxQx+5OaLRaw7nWziXrHe
+        5Am+YhbX6sGCIbzBCm6VgZO03FcutuASnuEYc2VgHw+wnVa7ymAygo9ZfbqVQHA5//9n9uMKbqZonMjd
+        3PfobwIVN7CIL/iGyVpTzxWoWMZYffF/BOI+jBbfMV/DIXZwvwr8i0CMW3mUcaEGsYGJCIbAi2xiSSkQ
+        lSM52M2xH29jch3zedOatmoCv7NyJMe9OcCFuvsBrGMVvSkQTXyKo7QdRHJwG6+L/AZteJxN2sMvvMIU
+        Pqft2HMHn2qO/6AjX2K8yIqHeJ8OonIj+RQAeErurKR/YwAAAABJRU5ErkJggg==
 </value>
   </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
