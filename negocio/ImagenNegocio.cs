@@ -52,17 +52,24 @@ namespace negocio {
         }
 
 
-        public List<string> obtenerURLsPorArticulo(Articulo articulo) {
-            List<string> listaURLs = new List<string>();
+        public List<Imagen> obtenerImagenPorArticulo(Articulo articulo) {
+            List<Imagen> listaImagenes = new List<Imagen>();
             AccesoDatos conector = new AccesoDatos();
 
             try {
-                conector.setearConsulta($"SELECT ImagenUrl FROM IMAGENES WHERE IdArticulo = {articulo.Id}");
+                conector.setearConsulta($"SELECT Id, IdArticulo, ImagenUrl FROM IMAGENES WHERE IdArticulo = {articulo.Id}");
                 conector.ejecutarLectura();
 
-                while (conector.Lector.Read()) listaURLs.Add((string)conector.Lector["ImagenUrl"]);
+                while (conector.Lector.Read()) {
+                    Imagen imagenAux = new Imagen();
+                    imagenAux.Id = (int)conector.Lector["Id"];
+                    imagenAux.IdArticulo = ((int)conector.Lector["IdArticulo"]);
+                    imagenAux.ImagenUrl = ((string)conector.Lector["ImagenUrl"]);
 
-                return listaURLs;
+                    listaImagenes.Add(imagenAux);
+                }
+
+                return listaImagenes;
 
             } catch (Exception e) {
                 throw e;
@@ -71,9 +78,23 @@ namespace negocio {
                 conector.cerrarConexion();
 
             }
+        }
 
 
-            return listaURLs;
+        public void eliminarImagen(Imagen imagen) {
+            AccesoDatos datos = new AccesoDatos();
+
+            try {
+                datos.setearConsulta($"DELETE FROM IMAGENES WHERE Id={imagen.Id}");
+                datos.ejecutarAccion();
+
+            } catch (Exception) {
+                throw;
+
+            } finally {
+                datos.cerrarConexion();
+            }
+
         }
     }
 }

@@ -44,8 +44,8 @@ namespace TPWinForm_Equipo7A {
             cbCategoria.ValueMember = "Descripcion";
             cbCategoria.SelectedValue = articulo.Categoria.Descripcion;
 
-            foreach (string URL in imagenNegocio.obtenerURLsPorArticulo(articulo)) {
-                dgvURLs.Rows.Add(URL);
+            foreach (Imagen imagen in imagenNegocio.obtenerImagenPorArticulo(articulo)) {
+                dgvURLs.Rows.Add(imagen.ImagenUrl);
             }
 
             actualizarImagen();
@@ -133,17 +133,63 @@ namespace TPWinForm_Equipo7A {
                     if (articulo.Codigo == articuloAux.Codigo || articuloNegocio.obtenerIdArticuloPorCodigo(articuloAux) == 0) {
                         articuloNegocio.actualizarArticulo(articuloAux); // Actualizo el Articulo en la DB.
 
-                        if (dgvURLs.Rows.Count > 0) {
-                            //List<Imagen> listaImagenes = new List<Imagen>();
+                        List<Imagen> listaImagenesEnDB = imagenNegocio.obtenerImagenPorArticulo(articulo);
+                        List<string> listaUrlsImagenesEnDgv = new List<string>();
+                        //List<Imagen> listaImagenesFinales = new List<Imagen>();
 
-                            foreach (DataGridViewRow fila in dgvURLs.Rows) {
-                                Imagen imagen = new Imagen();
-                                imagen.IdArticulo = articuloNegocio.obtenerIdArticuloPorCodigo(articulo); // Obtengo el ID del articulo recien subido a la DB y lo uso para el obj de Imagen.
-                                imagen.ImagenUrl = fila.Cells[0].Value.ToString();
-                                imagenNegocio.guardar(imagen); // Guardo cada imagen en la DB.
+                        // Leo y guardo las URLs del dgvURLs
+                        foreach ( DataGridViewRow fila in dgvURLs.Rows) {
+                            listaUrlsImagenesEnDgv.Add(fila.Cells[0].Value.ToString());
+                        }
+
+
+                        // Si la imagen de la DB NO esta en el listado del dgv, la elimino de la DB.
+                        foreach (Imagen imagen in listaImagenesEnDB) {
+                            bool imagenExiste = false;
+
+                            foreach (string URL in listaUrlsImagenesEnDgv) {
+                                if (imagen.ImagenUrl == URL) {
+                                    imagenExiste = true;
+                                }
                             }
 
+                            if (!imagenExiste) {
+                                imagenNegocio.eliminarImagen(imagen);
+                            }
                         }
+
+
+                        // Si la imagen del dgv NO esta en la DB, la agrego.
+                        foreach (string URL in listaUrlsImagenesEnDgv) {
+                            bool imagenExiste = false;
+
+                            foreach (Imagen imagen in listaImagenesEnDB) {
+                                if (URL == imagen.ImagenUrl) {
+                                    imagenExiste = true;
+                                }
+                            }
+
+                            if (!imagenExiste) {
+                                Imagen imagen = new Imagen();
+                                imagen.IdArticulo = articulo.Id;
+                                imagen.ImagenUrl = URL;
+                                imagenNegocio.guardar(imagen);
+                            }
+                        }
+
+
+
+                        //if (dgvURLs.Rows.Count > 0) {
+                        //    //List<Imagen> listaImagenes = new List<Imagen>();
+
+                        //    foreach (DataGridViewRow fila in dgvURLs.Rows) {
+                        //        Imagen imagen = new Imagen();
+                        //        imagen.IdArticulo = articuloNegocio.obtenerIdArticuloPorCodigo(articulo); // Obtengo el ID del articulo recien subido a la DB y lo uso para el obj de Imagen.
+                        //        imagen.ImagenUrl = fila.Cells[0].Value.ToString();
+                        //        imagenNegocio.guardar(imagen); // Guardo cada imagen en la DB.
+                        //    }
+
+                        //}
 
                         tbCodigo.Text = "";
                         tbPrecio.Text = "";
