@@ -13,25 +13,42 @@ using negocio;
 
 namespace TPWinForm_Equipo7A {
     public partial class frmModArticulo : Form {
+        Articulo articulo;
+
         public frmModArticulo() {
             InitializeComponent();
+        }
+
+        public frmModArticulo(Articulo articulo) {
+            InitializeComponent();
+            this.articulo = articulo;
         }
 
 
         private void frmModArticulo_Load(object sender, EventArgs e) {
             MarcaNegocio marcaNegocio = new MarcaNegocio();
             CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
+            ImagenNegocio imagenNegocio = new ImagenNegocio();
 
-            List<Marca> listaMarcas = marcaNegocio.listar();
-            listaMarcas.Insert(0, new Marca(-1, "Seleccionar...")); // Creo una Marca dummy solo para poder mostrar el texto "Seleccionar" en el combobox
-            cbMarca.DataSource = listaMarcas;
+            cbMarca.DataSource = marcaNegocio.listar();
+            cbCategoria.DataSource = categoriaNegocio.listar();
 
-            List<Categoria> listaCategorias = categoriaNegocio.listar();
-            listaCategorias.Insert(0, new Categoria(-1, "Seleccionar...")); // Creo una categoria dummy solo para poder mostrar el texto "Seleccionar" en el combobox
-            cbCategoria.DataSource = listaCategorias;
+            tbCodigo.Text = articulo.Codigo;
+            tbPrecio.Text = articulo.Precio.ToString();
+            tbNombre.Text = articulo.Nombre;
+            tbDescripcion.Text = articulo.Descripcion;
+
+            cbMarca.ValueMember = "Descripcion";
+            cbMarca.SelectedValue = articulo.Marca.Descripcion;
+
+            cbCategoria.ValueMember = "Descripcion";
+            cbCategoria.SelectedValue = articulo.Categoria.Descripcion;
+
+            foreach (string URL in imagenNegocio.obtenerURLsPorArticulo(articulo)) {
+                dgvURLs.Rows.Add(URL);
+            }
 
             actualizarImagen();
-
         }
 
 
@@ -57,20 +74,22 @@ namespace TPWinForm_Equipo7A {
         }
 
 
-        private void btnGuardar_Click(object sender, EventArgs e) {
+        private void btnActualizar_Click(object sender, EventArgs e) {
             ArticuloNegocio articuloNegocio = new ArticuloNegocio();
-            Articulo articulo = new Articulo();
+            Articulo articuloAux = new Articulo();
             ImagenNegocio imagenNegocio = new ImagenNegocio();
 
             try {
                 bool flagCampoVacio = false;
+                
+                articuloAux.Id = articulo.Id;
 
                 if (tbCodigo.Text == "") {
                     //tbCodigo.BackColor = Color.Red;
                     errorProvider.SetError(tbCodigo, "El nombre es obligatorio");
                     flagCampoVacio = true;
 
-                } else articulo.Codigo = tbCodigo.Text;
+                } else articuloAux.Codigo = tbCodigo.Text;
 
 
                 if (tbPrecio.Text == "") {
@@ -78,18 +97,17 @@ namespace TPWinForm_Equipo7A {
                     errorProvider.SetError(tbPrecio, "El precio es obligatorio");
                     flagCampoVacio = true;
 
-                } else articulo.Precio = int.Parse(tbPrecio.Text);
-
+                } else articuloAux.Precio = decimal.Parse(tbPrecio.Text.Replace('.', ','));
 
                 if (tbNombre.Text == "") {
                     //tbNombre.BackColor = Color.Red;
                     errorProvider.SetError(tbNombre, "El nombre es obligatorio");
                     flagCampoVacio = true;
 
-                } else articulo.Nombre = tbNombre.Text;
+                } else articuloAux.Nombre = tbNombre.Text;
 
 
-                articulo.Descripcion = tbDescripcion.Text;
+                articuloAux.Descripcion = tbDescripcion.Text;
 
 
                 if (cbMarca.Text == "Seleccionar...") {
@@ -97,7 +115,7 @@ namespace TPWinForm_Equipo7A {
                     errorProvider.SetError(cbMarca, "Debe seleccionar una marca");
                     flagCampoVacio = true;
 
-                } else articulo.Marca = (Marca)cbMarca.SelectedItem;
+                } else articuloAux.Marca = (Marca)cbMarca.SelectedItem;
 
 
                 if (cbCategoria.Text == "Seleccionar...") {
@@ -105,14 +123,15 @@ namespace TPWinForm_Equipo7A {
                     errorProvider.SetError(cbCategoria, "Debe seleccionar una categoria");
                     flagCampoVacio = true;
 
-                } else articulo.Categoria = (Categoria)cbCategoria.SelectedItem;
+                } else articuloAux.Categoria = (Categoria)cbCategoria.SelectedItem;
 
 
 
                 if (!flagCampoVacio) {
 
-                    if (articuloNegocio.obtenerIdArticuloPorCodigo(articulo) == 0) {
-                        articuloNegocio.guardar(articulo); // Guardo el Articulo en la DB.
+                    // Si el codigo ingresao es distinto al del producto a modificar Y el codigo YA SE ENCUENTRA en la DB, entonces el codigo ya existe.
+                    if (articulo.Codigo == articuloAux.Codigo || articuloNegocio.obtenerIdArticuloPorCodigo(articuloAux) == 0) {
+                        articuloNegocio.actualizarArticulo(articuloAux); // Actualizo el Articulo en la DB.
 
                         if (dgvURLs.Rows.Count > 0) {
                             //List<Imagen> listaImagenes = new List<Imagen>();
@@ -134,7 +153,7 @@ namespace TPWinForm_Equipo7A {
                         cbCategoria.Text = "Seleccionar...";
                         dgvURLs.Rows.Clear();
                         lbMensajeEstado.ForeColor = Color.Green;
-                        lbMensajeEstado.Text = "Articulo guardado con exito.";
+                        lbMensajeEstado.Text = "Articulo actualizado con exito.";
                         actualizarImagen();
 
                     } else {
@@ -164,7 +183,12 @@ namespace TPWinForm_Equipo7A {
 
         private void actualizarImagen() {
             if (!(dgvURLs.CurrentRow is null)) {
-                pbImagen.ImageLocation = dgvURLs.CurrentRow.Cells[0].Value.ToString(); // Obtengo la URL de la fila seleccionada y la uso para el PictureBox
+                try {
+                    pbImagen.ImageLocation = dgvURLs.CurrentRow.Cells[0].Value.ToString(); // Obtengo la URL de la fila seleccionada y la uso para el PictureBox
+
+                } catch (NullReferenceException ex) {
+                    return;
+                }
 
             } else pbImagen.ImageLocation = "..\\..\\..\\assets\\images\\NoImageLoaded.png";
 

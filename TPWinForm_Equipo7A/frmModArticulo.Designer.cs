@@ -51,7 +51,7 @@ namespace TPWinForm_Equipo7A {
             this.ImagenUrl = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pbImagen = new System.Windows.Forms.PictureBox();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.lbMensajeEstado = new System.Windows.Forms.Label();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.gbDatosArticulo.SuspendLayout();
@@ -355,20 +355,20 @@ namespace TPWinForm_Equipo7A {
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // btnGuardar
+            // btnActualizar
             // 
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(244)))), ((int)(((byte)(215)))));
-            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.btnGuardar.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnGuardar.Location = new System.Drawing.Point(479, 492);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(98, 33);
-            this.btnGuardar.TabIndex = 3;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(244)))), ((int)(((byte)(215)))));
+            this.btnActualizar.FlatAppearance.BorderColor = System.Drawing.Color.DarkGreen;
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.btnActualizar.ForeColor = System.Drawing.Color.DarkGreen;
+            this.btnActualizar.Location = new System.Drawing.Point(479, 492);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(98, 33);
+            this.btnActualizar.TabIndex = 3;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // lbMensajeEstado
             // 
@@ -396,7 +396,7 @@ namespace TPWinForm_Equipo7A {
             this.ClientSize = new System.Drawing.Size(604, 541);
             this.Controls.Add(this.lbMensajeEstado);
             this.Controls.Add(this.btnCancelar);
-            this.Controls.Add(this.btnGuardar);
+            this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.gbImágenes);
             this.Controls.Add(this.gbDatosArticulo);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -434,7 +434,7 @@ namespace TPWinForm_Equipo7A {
         private System.Windows.Forms.Label lbCategoria;
         private System.Windows.Forms.GroupBox gbImágenes;
         private System.Windows.Forms.Button btnCancelar;
-        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnActualizar;
         private PictureBox pbImagen;
         private DataGridView dgvURLs;
         private Button btnAgregarImagen;

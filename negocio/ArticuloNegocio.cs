@@ -10,11 +10,13 @@ namespace negocio
         {
             List<Articulo> lista = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
+            MarcaNegocio marcaNegocio = new MarcaNegocio();
+            CategoriaNegocio categoriaNegocio = new CategoriaNegocio();
 
             try
             {
 
-                datos.setearConsulta("SELECT Id, Codigo, Nombre, Descripcion, Precio FROM ARTICULOS");
+                datos.setearConsulta("SELECT Id, Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria FROM ARTICULOS");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -25,7 +27,8 @@ namespace negocio
                     aux.Nombre = (string)datos.Lector["Nombre"];
                     aux.Descripcion = (string)datos.Lector["Descripcion"];
                     aux.Precio = (decimal)datos.Lector["Precio"];
-
+                    aux.Marca = marcaNegocio.buscarPorId( (int) datos.Lector["IdMarca"] );
+                    aux.Categoria = categoriaNegocio.buscarPorId( (int)datos.Lector["IdCategoria"] );
                     lista.Add(aux);
                 }
                 return lista;
@@ -44,7 +47,7 @@ namespace negocio
             AccesoDatos datos = new AccesoDatos();
 
             try {
-                datos.setearConsulta($"INSERT INTO ARTICULOS VALUES ('{articulo.Codigo}', '{articulo.Nombre}', '{articulo.Descripcion}', {articulo.Marca.Id}, {articulo.Categoria.Id}, {articulo.Precio})");
+                datos.setearConsulta($"INSERT INTO ARTICULOS VALUES ('{articulo.Codigo}', '{articulo.Nombre}', '{articulo.Descripcion}', {articulo.Marca.Id}, {articulo.Categoria.Id}, {articulo.Precio.ToString().Replace(",", ".")})");
                 datos.ejecutarAccion();
 
             } catch (Exception) {
@@ -74,6 +77,26 @@ namespace negocio
             } finally {
                 datos.cerrarConexion();
             }
+        }
+
+
+        public void actualizarArticulo(Articulo articulo) {
+            AccesoDatos datos = new AccesoDatos();
+
+            try {
+                datos.setearConsulta($"UPDATE ARTICULOS SET Codigo='{articulo.Codigo}', Nombre='{articulo.Nombre}', Descripcion='{articulo.Descripcion}', IdMarca={articulo.Marca.Id}, IdCategoria={articulo.Categoria.Id}, Precio={articulo.Precio.ToString().Replace(",", ".")} WHERE ID={articulo.Id}");
+                datos.ejecutarAccion();
+
+
+            } catch (Exception ex) {
+                throw ex;
+
+            } finally {
+                datos.cerrarConexion();
+            }
+
+
+
         }
     }
 }

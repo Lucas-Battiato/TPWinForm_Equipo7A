@@ -78,8 +78,7 @@ namespace TPWinForm_Equipo7A {
                     errorProvider.SetError(tbPrecio, "El precio es obligatorio");
                     flagCampoVacio = true;
 
-                } else articulo.Precio = int.Parse(tbPrecio.Text);
-
+                } else articulo.Precio = decimal.Parse(tbPrecio.Text.Replace('.', ','));
 
                 if (tbNombre.Text == "") {
                     //tbNombre.BackColor = Color.Red;

@@ -50,5 +50,30 @@ namespace negocio {
                 datos.cerrarConexion();
             }
         }
+
+
+        public List<string> obtenerURLsPorArticulo(Articulo articulo) {
+            List<string> listaURLs = new List<string>();
+            AccesoDatos conector = new AccesoDatos();
+
+            try {
+                conector.setearConsulta($"SELECT ImagenUrl FROM IMAGENES WHERE IdArticulo = {articulo.Id}");
+                conector.ejecutarLectura();
+
+                while (conector.Lector.Read()) listaURLs.Add((string)conector.Lector["ImagenUrl"]);
+
+                return listaURLs;
+
+            } catch (Exception e) {
+                throw e;
+
+            } finally {
+                conector.cerrarConexion();
+
+            }
+
+
+            return listaURLs;
+        }
     }
 }

@@ -34,5 +34,34 @@ namespace negocio {
 
             }
         }
+
+
+        public Marca buscarPorId(int id) {
+            AccesoDatos conector = new AccesoDatos();
+
+            try {
+                conector.setearConsulta($"SELECT Id, Descripcion FROM MARCAS WHERE Id = {id}");
+                conector.ejecutarLectura();
+
+                Marca marcaAux = new Marca();
+                if (conector.Lector.Read()) {
+                    marcaAux.Id = (int)conector.Lector["Id"];
+                    marcaAux.Descripcion = (string)conector.Lector["Descripcion"];
+
+                } else {
+                    marcaAux.Id = -1;
+                    marcaAux.Descripcion = "N/A";
+                }
+
+                return marcaAux;
+
+            } catch (Exception e) {
+                throw e;
+
+            } finally {
+                conector.cerrarConexion();
+
+            }
+        }
     }
 }

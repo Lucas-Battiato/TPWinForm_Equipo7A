@@ -35,7 +35,8 @@ namespace winform_app
         private void btnModificar_Click(object sender, EventArgs e) {
 
             if (dgvArticulos.SelectedCells != null) {
-                frmModArticulo frmModArticulo = new frmModArticulo();
+                Articulo articuloSeleccionado = (Articulo) dgvArticulos.CurrentRow.DataBoundItem;
+                frmModArticulo frmModArticulo = new frmModArticulo(articuloSeleccionado);
                 frmModArticulo.ShowDialog();
 
             } else MessageBox.Show("Debe seleccionar un articulo del listado.");
