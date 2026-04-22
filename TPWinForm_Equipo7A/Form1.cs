@@ -16,6 +16,7 @@ namespace winform_app
 {
     public partial class Form1 : Form
     {
+        private List<Articulo> listaArticulo;
         public Form1()
         {
             InitializeComponent();
@@ -24,7 +25,9 @@ namespace winform_app
         private void Form1_Load(object sender, EventArgs e)
         {
             ArticuloNegocio negocio = new ArticuloNegocio();
+            listaArticulo = negocio.Listar();
             dgvArticulos.DataSource = negocio.Listar();
+            ocultarColumnas();
 
                 cbCampo.Items.Add("Id");
                 cbCampo.Items.Add("Codigo");
@@ -97,5 +100,48 @@ namespace winform_app
                 cbCriterio.Items.Add("Contiene");
             }
         }
+        private void txtFiltroRapido_TextChanged(object sender, EventArgs e)
+        {
+            List<Articulo> listaFiltrada;
+            string filtro = txtFiltroRapido.Text;
+
+            if (listaArticulo == null)
+            {
+                return;
+            }
+
+            if (filtro != "")
+            {
+                string filtroAvanzado = filtro.ToUpper();
+
+                listaFiltrada = listaArticulo.FindAll(x =>
+                    x != null && (
+
+                        (x.Nombre != null && x.Nombre.ToUpper().Contains(filtroAvanzado)) ||
+                        (x.Codigo != null && x.Codigo.ToUpper().Contains(filtroAvanzado)) ||
+                        (x.Descripcion != null && x.Descripcion.ToUpper().Contains(filtroAvanzado)) ||
+                        (x.Id.ToString().Contains(filtroAvanzado)) ||
+                        (x.Precio.ToString().Contains(filtroAvanzado)) ||
+                        (x.Marca != null && x.Marca.Descripcion != null && x.Marca.Descripcion.ToUpper().Contains(filtroAvanzado)) ||
+                        (x.Categoria != null && x.Categoria.Descripcion != null && x.Categoria.Descripcion.ToUpper().Contains(filtroAvanzado))
+                    )
+                );
+            }
+            else
+            {
+                listaFiltrada = listaArticulo;
+            }
+
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = listaFiltrada;
+            ocultarColumnas();
+        }
+
+        private void ocultarColumnas()
+        {
+            dgvArticulos.Columns["Precio"].DefaultCellStyle.Format = "N2";
+        }
+
+        
     }
 }

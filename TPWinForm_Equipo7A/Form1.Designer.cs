@@ -44,8 +44,12 @@
             this.cbCriterio = new System.Windows.Forms.ComboBox();
             this.cbCampo = new System.Windows.Forms.ComboBox();
             this.txtFiltro = new System.Windows.Forms.TextBox();
+            this.lblFiltroRapido = new System.Windows.Forms.Label();
+            this.txtFiltroRapido = new System.Windows.Forms.TextBox();
+            this.pbxArticulo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvArticulos
@@ -66,8 +70,9 @@
             this.dgvArticulos.EnableHeadersVisualStyles = false;
             this.dgvArticulos.Location = new System.Drawing.Point(35, 205);
             this.dgvArticulos.Name = "dgvArticulos";
-            this.dgvArticulos.Size = new System.Drawing.Size(724, 196);
+            this.dgvArticulos.Size = new System.Drawing.Size(633, 196);
             this.dgvArticulos.TabIndex = 0;
+
             // 
             // agregarArticuloToolStripMenuItem
             // 
@@ -83,7 +88,7 @@
             this.agregarArticuloToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(920, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -109,7 +114,7 @@
             this.lblCampo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCampo.AutoSize = true;
             this.lblCampo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(191)))), ((int)(((byte)(174)))));
-            this.lblCampo.Location = new System.Drawing.Point(54, 72);
+            this.lblCampo.Location = new System.Drawing.Point(35, 93);
             this.lblCampo.Name = "lblCampo";
             this.lblCampo.Size = new System.Drawing.Size(43, 13);
             this.lblCampo.TabIndex = 0;
@@ -121,7 +126,7 @@
             this.lblCriterio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCriterio.AutoSize = true;
             this.lblCriterio.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(191)))), ((int)(((byte)(174)))));
-            this.lblCriterio.Location = new System.Drawing.Point(274, 74);
+            this.lblCriterio.Location = new System.Drawing.Point(272, 97);
             this.lblCriterio.Name = "lblCriterio";
             this.lblCriterio.Size = new System.Drawing.Size(42, 13);
             this.lblCriterio.TabIndex = 7;
@@ -133,7 +138,7 @@
             this.lblFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFiltro.AutoSize = true;
             this.lblFiltro.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(191)))), ((int)(((byte)(174)))));
-            this.lblFiltro.Location = new System.Drawing.Point(475, 74);
+            this.lblFiltro.Location = new System.Drawing.Point(478, 99);
             this.lblFiltro.Name = "lblFiltro";
             this.lblFiltro.Size = new System.Drawing.Size(32, 13);
             this.lblFiltro.TabIndex = 0;
@@ -144,7 +149,7 @@
             // 
             this.btnBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscar.Location = new System.Drawing.Point(667, 69);
+            this.btnBuscar.Location = new System.Drawing.Point(677, 93);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 8;
@@ -206,7 +211,7 @@
             this.cbCriterio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(45)))));
             this.cbCriterio.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.cbCriterio.FormattingEnabled = true;
-            this.cbCriterio.Location = new System.Drawing.Point(336, 71);
+            this.cbCriterio.Location = new System.Drawing.Point(333, 93);
             this.cbCriterio.Name = "cbCriterio";
             this.cbCriterio.Size = new System.Drawing.Size(125, 21);
             this.cbCriterio.TabIndex = 13;
@@ -218,7 +223,7 @@
             this.cbCampo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(45)))));
             this.cbCampo.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.cbCampo.FormattingEnabled = true;
-            this.cbCampo.Location = new System.Drawing.Point(121, 69);
+            this.cbCampo.Location = new System.Drawing.Point(93, 90);
             this.cbCampo.Name = "cbCampo";
             this.cbCampo.Size = new System.Drawing.Size(125, 21);
             this.cbCampo.TabIndex = 15;
@@ -227,17 +232,54 @@
             // 
             // txtFiltro
             // 
-            this.txtFiltro.Location = new System.Drawing.Point(529, 72);
+            this.txtFiltro.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFiltro.Location = new System.Drawing.Point(516, 93);
             this.txtFiltro.Name = "txtFiltro";
-            this.txtFiltro.Size = new System.Drawing.Size(100, 20);
+            this.txtFiltro.Size = new System.Drawing.Size(125, 20);
             this.txtFiltro.TabIndex = 16;
+            // 
+            // lblFiltroRapido
+            // 
+            this.lblFiltroRapido.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFiltroRapido.AutoSize = true;
+            this.lblFiltroRapido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(193)))), ((int)(((byte)(191)))), ((int)(((byte)(174)))));
+            this.lblFiltroRapido.Location = new System.Drawing.Point(35, 56);
+            this.lblFiltroRapido.Name = "lblFiltroRapido";
+            this.lblFiltroRapido.Size = new System.Drawing.Size(32, 13);
+            this.lblFiltroRapido.TabIndex = 17;
+            this.lblFiltroRapido.Text = "Filtro:";
+            this.lblFiltroRapido.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // txtFiltroRapido
+            // 
+            this.txtFiltroRapido.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFiltroRapido.ImeMode = System.Windows.Forms.ImeMode.Off;
+            this.txtFiltroRapido.Location = new System.Drawing.Point(73, 53);
+            this.txtFiltroRapido.Name = "txtFiltroRapido";
+            this.txtFiltroRapido.Size = new System.Drawing.Size(199, 20);
+            this.txtFiltroRapido.TabIndex = 18;
+            this.txtFiltroRapido.TextChanged += new System.EventHandler(this.txtFiltroRapido_TextChanged);
+            // 
+            // pbxArticulo
+            // 
+            this.pbxArticulo.Location = new System.Drawing.Point(725, 205);
+            this.pbxArticulo.Name = "pbxArticulo";
+            this.pbxArticulo.Size = new System.Drawing.Size(166, 196);
+            this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbxArticulo.TabIndex = 19;
+            this.pbxArticulo.TabStop = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(920, 450);
+            this.Controls.Add(this.pbxArticulo);
+            this.Controls.Add(this.txtFiltroRapido);
+            this.Controls.Add(this.lblFiltroRapido);
             this.Controls.Add(this.txtFiltro);
             this.Controls.Add(this.cbCampo);
             this.Controls.Add(this.cbCriterio);
@@ -259,6 +301,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbxArticulo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -280,6 +323,9 @@
         private System.Windows.Forms.ComboBox cbCriterio;
         private System.Windows.Forms.ComboBox cbCampo;
         private System.Windows.Forms.TextBox txtFiltro;
+        private System.Windows.Forms.Label lblFiltroRapido;
+        private System.Windows.Forms.TextBox txtFiltroRapido;
+        private System.Windows.Forms.PictureBox pbxArticulo;
     }
 }
 
