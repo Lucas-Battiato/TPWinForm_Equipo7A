@@ -96,6 +96,16 @@ namespace negocio
             }
 
         }
+        public void eliminar(int id) {
+            AccesoDatos datos = new AccesoDatos();
+            try {
+                datos.setearConsulta($"DELETE FROM ARTICULOS WHERE Id = {id}");
+                datos.ejecutarAccion();
+            } catch { throw; } finally {
+                datos.cerrarConexion();
+            }
+        }
+
         public List<Articulo> filtrar(string campo, string criterio, string filtro)
         {
             List<Articulo> lista = new List<Articulo>();

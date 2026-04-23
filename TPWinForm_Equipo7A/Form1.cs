@@ -64,12 +64,50 @@ namespace winform_app
             frmAltaArticulo.ShowDialog();
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e) {
+            if (dgvArticulos.CurrentRow == null) {
+                MessageBox.Show("Debe seleccionar un artículo del listado.");
+                return;
+            }
+            Articulo articuloSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            if (MessageBox.Show($"¿Eliminar el artículo '{articuloSeleccionado.Nombre}'?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes) {
+                try {
+                    ArticuloNegocio negocio = new ArticuloNegocio();
+                    negocio.eliminar(articuloSeleccionado.Id);
+                    cargar();
+                } catch (Exception ex) {
+                    MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+
+        private void btnDetalle_Click(object sender, EventArgs e) {
+            if (dgvArticulos.CurrentRow == null) {
+                MessageBox.Show("Debe seleccionar un artículo del listado.");
+                return;
+            }
+            Articulo articuloSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+            frmDetalleArticulo detalle = new frmDetalleArticulo(articuloSeleccionado);
+            detalle.ShowDialog();
+        }
+
+        private void marcasToolStripMenuItem_Click(object sender, EventArgs e) {
+            frmMarcas marcas = new frmMarcas();
+            marcas.ShowDialog();
+        }
+
+        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e) {
+            frmCategorias categorias = new frmCategorias();
+            categorias.ShowDialog();
+        }
+
         private void btnModificar_Click(object sender, EventArgs e) {
 
             if (dgvArticulos.SelectedCells != null) {
                 Articulo articuloSeleccionado = (Articulo) dgvArticulos.CurrentRow.DataBoundItem;
                 frmModArticulo frmModArticulo = new frmModArticulo(articuloSeleccionado);
                 frmModArticulo.ShowDialog();
+                cargar();
 
             } else MessageBox.Show("Debe seleccionar un articulo del listado.");
             
