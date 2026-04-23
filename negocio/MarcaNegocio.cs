@@ -36,6 +36,22 @@ namespace negocio {
         }
 
 
+        public void guardar(string descripcion) {
+            AccesoDatos datos = new AccesoDatos();
+            try {
+                datos.setearConsulta($"INSERT INTO MARCAS (Descripcion) VALUES ('{descripcion}')");
+                datos.ejecutarAccion();
+            } catch { throw; } finally { datos.cerrarConexion(); }
+        }
+
+        public void eliminar(int id) {
+            AccesoDatos datos = new AccesoDatos();
+            try {
+                datos.setearConsulta($"DELETE FROM MARCAS WHERE Id = {id}");
+                datos.ejecutarAccion();
+            } catch { throw; } finally { datos.cerrarConexion(); }
+        }
+
         public Marca buscarPorId(int id) {
             AccesoDatos conector = new AccesoDatos();
 
