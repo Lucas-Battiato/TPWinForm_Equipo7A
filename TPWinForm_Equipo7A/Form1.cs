@@ -27,7 +27,9 @@ namespace winform_app
             ArticuloNegocio negocio = new ArticuloNegocio();
             listaArticulo = negocio.Listar();
             dgvArticulos.DataSource = negocio.Listar();
+            cargar();
             ocultarColumnas();
+
 
                 cbCampo.Items.Add("Id");
                 cbCampo.Items.Add("Codigo");
@@ -40,6 +42,21 @@ namespace winform_app
                 cbCriterio.Items.Add("Contiene");
                 cbCriterio.Items.Add("Empieza con");
                 cbCriterio.Items.Add("Termina con");
+        }
+        private void cargar()
+        {
+            ArticuloNegocio negocio = new ArticuloNegocio();
+            ImagenNegocio imgNegocio = new ImagenNegocio();
+            try
+            {
+                listaArticulo = negocio.Listar();
+                dgvArticulos.DataSource = listaArticulo;
+                ocultarColumnas();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void agregarArticuloToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -61,6 +78,10 @@ namespace winform_app
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+            if (validarFiltro())
+            {
+                return;
+            }
             ArticuloNegocio negocio = new ArticuloNegocio();
             try
             {
@@ -142,6 +163,74 @@ namespace winform_app
             dgvArticulos.Columns["Precio"].DefaultCellStyle.Format = "N2";
         }
 
-        
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            frmAltaArticulo alta = new frmAltaArticulo();
+            alta.ShowDialog();
+            cargar();
+        }
+
+        private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
+        {
+            if (dgvArticulos.CurrentRow != null)
+            {
+                Articulo seleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
+                ImagenNegocio imgNegocio = new ImagenNegocio();
+                List<Imagen> fotosDelArticulo = imgNegocio.obtenerImagenPorArticulo(seleccionado);
+                string urlParaMostrar = "https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png";
+
+                if (fotosDelArticulo.Count > 0)
+                {
+                    urlParaMostrar = fotosDelArticulo[0].ImagenUrl;
+                }
+
+                cargarImagen(urlParaMostrar);
+            }
+        }
+        private void cargarImagen(string imagen)
+        {
+            try
+            {
+                pbxArticulo.LoadAsync(imagen);
+            }
+            catch (Exception ex)
+            {
+                pbxArticulo.LoadAsync("https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png");
+            }
+        }
+        private bool validarFiltro()
+        {
+            if (cbCampo.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor, seleccione el campo para filtrar.");
+                return true;
+            }
+
+            if (cbCriterio.SelectedIndex < 0)
+            {
+                MessageBox.Show("Por favor, seleccione el criterio para filtrar.");
+                return true;
+            }
+
+            string campoSeleccionado = cbCampo.SelectedItem.ToString();
+
+            if (campoSeleccionado == "Id" || campoSeleccionado == "Precio")
+            {
+                if (string.IsNullOrEmpty(txtFiltro.Text))
+                {
+                    MessageBox.Show("Por favor, ingrese un número para filtrar.");
+                    return true;
+                }
+
+                if (!int.TryParse(txtFiltro.Text, out int numero))
+                {
+                    MessageBox.Show("Este campo solo acepta números.");
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
     }
 }
