@@ -59,11 +59,6 @@ namespace winform_app
             }
         }
 
-        private void agregarArticuloToolStripMenuItem_Click(object sender, EventArgs e) {
-            frmAltaArticulo frmAltaArticulo = new frmAltaArticulo();
-            frmAltaArticulo.ShowDialog();
-        }
-
         private void btnEliminar_Click(object sender, EventArgs e) {
             if (dgvArticulos.CurrentRow == null) {
                 MessageBox.Show("Debe seleccionar un artículo del listado.");
@@ -231,7 +226,7 @@ namespace winform_app
             {
                 pbxArticulo.LoadAsync(imagen);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 pbxArticulo.LoadAsync("https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png");
             }

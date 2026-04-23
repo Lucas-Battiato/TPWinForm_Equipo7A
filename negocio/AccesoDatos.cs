@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,9 +41,9 @@ namespace negocio
                 conexion.Open();
                 lector = comando.ExecuteReader();
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
         }
 
@@ -53,8 +53,8 @@ namespace negocio
                 conexion.Open();
                 comando.ExecuteNonQuery();
 
-            } catch (Exception ex) {
-                throw ex;
+            } catch {
+                throw;
             }
         }
 

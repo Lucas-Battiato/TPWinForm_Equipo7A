@@ -1,4 +1,4 @@
-﻿using dominio;
+using dominio;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,8 +26,8 @@ namespace negocio {
 
                 return listaMarcas;
 
-            } catch (Exception e) {
-                throw e;
+            } catch {
+                throw;
 
             } finally {
                 conector.cerrarConexion();
@@ -71,8 +71,8 @@ namespace negocio {
 
                 return marcaAux;
 
-            } catch (Exception e) {
-                throw e;
+            } catch {
+                throw;
 
             } finally {
                 conector.cerrarConexion();
@@ -81,3 +81,4 @@ namespace negocio {
         }
     }
 }
+

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using dominio;
 
@@ -33,9 +33,9 @@ namespace negocio
                 }
                 return lista;
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
             finally
             {
@@ -71,8 +71,8 @@ namespace negocio
 
                 } else return 0;
 
-            } catch (Exception ex) {
-                throw ex;
+            } catch {
+                throw;
 
             } finally {
                 datos.cerrarConexion();
@@ -88,8 +88,8 @@ namespace negocio
                 datos.ejecutarAccion();
 
 
-            } catch (Exception ex) {
-                throw ex;
+            } catch {
+                throw;
 
             } finally {
                 datos.cerrarConexion();
@@ -136,7 +136,7 @@ namespace negocio
                     }
                 }
 
-                else if (campo == "Código" || campo == "Codigo")
+                else if (campo == "C�digo" || campo == "Codigo")
                 {
                     switch (criterio)
                     {
@@ -166,7 +166,7 @@ namespace negocio
                     }
                 }
 
-                else if (campo == "Categoría" || campo == "Categoria")
+                else if (campo == "Categor�a" || campo == "Categoria")
                 {
                     switch (criterio)
                     {
@@ -211,9 +211,9 @@ namespace negocio
 
                 return lista;
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                throw;
             }
             finally
             {
