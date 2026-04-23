@@ -36,6 +36,22 @@ namespace negocio {
         }
 
 
+        public void guardar(string descripcion) {
+            AccesoDatos datos = new AccesoDatos();
+            try {
+                datos.setearConsulta($"INSERT INTO CATEGORIAS (Descripcion) VALUES ('{descripcion}')");
+                datos.ejecutarAccion();
+            } catch { throw; } finally { datos.cerrarConexion(); }
+        }
+
+        public void eliminar(int id) {
+            AccesoDatos datos = new AccesoDatos();
+            try {
+                datos.setearConsulta($"DELETE FROM CATEGORIAS WHERE Id = {id}");
+                datos.ejecutarAccion();
+            } catch { throw; } finally { datos.cerrarConexion(); }
+        }
+
         public Categoria buscarPorId(int id) {
             AccesoDatos conector = new AccesoDatos();
 
