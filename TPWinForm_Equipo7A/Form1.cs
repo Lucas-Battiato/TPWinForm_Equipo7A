@@ -30,7 +30,6 @@ namespace winform_app
             cargar();
             ocultarColumnas();
 
-
             cbCampo.Items.Add("Id");
             cbCampo.Items.Add("Codigo");
             cbCampo.Items.Add("Nombre");
@@ -42,6 +41,9 @@ namespace winform_app
             cbCriterio.Items.Add("Contiene");
             cbCriterio.Items.Add("Empieza con");
             cbCriterio.Items.Add("Termina con");
+
+            cbCampo.SelectedIndex = 0;
+            cbCriterio.SelectedIndex = 0;
         }
         private void cargar()
         {
