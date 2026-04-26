@@ -31,17 +31,17 @@ namespace winform_app
             ocultarColumnas();
 
 
-                cbCampo.Items.Add("Id");
-                cbCampo.Items.Add("Codigo");
-                cbCampo.Items.Add("Nombre");
-                cbCampo.Items.Add("Descripcion");
-                cbCampo.Items.Add("Precio");
-                cbCampo.Items.Add("Marca");
-                cbCampo.Items.Add("Categoria");
-    
-                cbCriterio.Items.Add("Contiene");
-                cbCriterio.Items.Add("Empieza con");
-                cbCriterio.Items.Add("Termina con");
+            cbCampo.Items.Add("Id");
+            cbCampo.Items.Add("Codigo");
+            cbCampo.Items.Add("Nombre");
+            cbCampo.Items.Add("Descripcion");
+            cbCampo.Items.Add("Precio");
+            cbCampo.Items.Add("Marca");
+            cbCampo.Items.Add("Categoria");
+
+            cbCriterio.Items.Add("Contiene");
+            cbCriterio.Items.Add("Empieza con");
+            cbCriterio.Items.Add("Termina con");
         }
         private void cargar()
         {
@@ -59,25 +59,33 @@ namespace winform_app
             }
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e) {
-            if (dgvArticulos.CurrentRow == null) {
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvArticulos.CurrentRow == null)
+            {
                 MessageBox.Show("Debe seleccionar un artículo del listado.");
                 return;
             }
             Articulo articuloSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
-            if (MessageBox.Show($"¿Eliminar el artículo '{articuloSeleccionado.Nombre}'?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes) {
-                try {
+            if (MessageBox.Show($"¿Eliminar el artículo '{articuloSeleccionado.Nombre}'?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                try
+                {
                     ArticuloNegocio negocio = new ArticuloNegocio();
                     negocio.eliminar(articuloSeleccionado.Id);
                     cargar();
-                } catch (Exception ex) {
+                }
+                catch (Exception ex)
+                {
                     MessageBox.Show(ex.ToString());
                 }
             }
         }
 
-        private void btnDetalle_Click(object sender, EventArgs e) {
-            if (dgvArticulos.CurrentRow == null) {
+        private void btnDetalle_Click(object sender, EventArgs e)
+        {
+            if (dgvArticulos.CurrentRow == null)
+            {
                 MessageBox.Show("Debe seleccionar un artículo del listado.");
                 return;
             }
@@ -86,26 +94,31 @@ namespace winform_app
             detalle.ShowDialog();
         }
 
-        private void marcasToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void marcasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             frmMarcas marcas = new frmMarcas();
             marcas.ShowDialog();
         }
 
-        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e) {
+        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             frmCategorias categorias = new frmCategorias();
             categorias.ShowDialog();
         }
 
-        private void btnModificar_Click(object sender, EventArgs e) {
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
 
-            if (dgvArticulos.SelectedCells != null) {
-                Articulo articuloSeleccionado = (Articulo) dgvArticulos.CurrentRow.DataBoundItem;
+            if (dgvArticulos.SelectedCells != null)
+            {
+                Articulo articuloSeleccionado = (Articulo)dgvArticulos.CurrentRow.DataBoundItem;
                 frmModArticulo frmModArticulo = new frmModArticulo(articuloSeleccionado);
                 frmModArticulo.ShowDialog();
                 cargar();
 
-            } else MessageBox.Show("Debe seleccionar un articulo del listado.");
-            
+            }
+            else MessageBox.Show("Debe seleccionar un articulo del listado.");
+
 
         }
 
@@ -264,6 +277,23 @@ namespace winform_app
             return false;
         }
 
+        private void pbxArticulo_LoadCompleted(object sender, AsyncCompletedEventArgs e)
+        {
+            if (e.Error != null)
+            {
+                {
+                    try
+                    {
+                        pbxArticulo.LoadAsync("https://efectocolibri.com/wp-content/uploads/2021/01/placeholder.png");
+                    }
+                    catch (Exception)
+                    {
+
+                        throw;
+                    }
+                }
+            }
+        }
 
     }
 }

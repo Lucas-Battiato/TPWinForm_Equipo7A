@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.marcasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,21 +58,35 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvArticulos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.GrayText;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvArticulos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.GrayText;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvArticulos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.EnableHeadersVisualStyles = false;
             this.dgvArticulos.Location = new System.Drawing.Point(35, 205);
             this.dgvArticulos.Name = "dgvArticulos";
-            this.dgvArticulos.Size = new System.Drawing.Size(633, 196);
+            this.dgvArticulos.Size = new System.Drawing.Size(633, 249);
             this.dgvArticulos.TabIndex = 0;
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
+            // 
+            // marcasToolStripMenuItem
+            // 
+            this.marcasToolStripMenuItem.Name = "marcasToolStripMenuItem";
+            this.marcasToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.marcasToolStripMenuItem.Text = "Marcas";
+            this.marcasToolStripMenuItem.Click += new System.EventHandler(this.marcasToolStripMenuItem_Click);
+            // 
+            // categoriasToolStripMenuItem
+            // 
+            this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
+            this.categoriasToolStripMenuItem.Text = "Categorías";
+            this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
@@ -185,20 +198,6 @@
             this.btnDetalle.UseVisualStyleBackColor = false;
             this.btnDetalle.Click += new System.EventHandler(this.btnDetalle_Click);
             // 
-            // marcasToolStripMenuItem
-            // 
-            this.marcasToolStripMenuItem.Name = "marcasToolStripMenuItem";
-            this.marcasToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.marcasToolStripMenuItem.Text = "Marcas";
-            this.marcasToolStripMenuItem.Click += new System.EventHandler(this.marcasToolStripMenuItem_Click);
-            // 
-            // categoriasToolStripMenuItem
-            // 
-            this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
-            this.categoriasToolStripMenuItem.Text = "Categorías";
-            this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
-            // 
             // btnAgregar
             // 
             this.btnAgregar.BackColor = System.Drawing.Color.ForestGreen;
@@ -275,19 +274,22 @@
             // 
             // pbxArticulo
             // 
+            this.pbxArticulo.ErrorImage = null;
+            this.pbxArticulo.InitialImage = null;
             this.pbxArticulo.Location = new System.Drawing.Point(725, 205);
             this.pbxArticulo.Name = "pbxArticulo";
-            this.pbxArticulo.Size = new System.Drawing.Size(166, 196);
+            this.pbxArticulo.Size = new System.Drawing.Size(166, 249);
             this.pbxArticulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbxArticulo.TabIndex = 19;
             this.pbxArticulo.TabStop = false;
+            this.pbxArticulo.LoadCompleted += new System.ComponentModel.AsyncCompletedEventHandler(this.pbxArticulo_LoadCompleted);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(47)))), ((int)(((byte)(45)))));
-            this.ClientSize = new System.Drawing.Size(920, 450);
+            this.ClientSize = new System.Drawing.Size(920, 503);
             this.Controls.Add(this.pbxArticulo);
             this.Controls.Add(this.txtFiltroRapido);
             this.Controls.Add(this.lblFiltroRapido);

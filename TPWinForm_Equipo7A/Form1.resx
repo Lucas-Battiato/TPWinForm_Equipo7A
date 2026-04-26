@@ -117,19 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="agregarArticuloToolStripMenuItem.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        cAAAAHABznhikwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAFPSURBVDhPldO/
-        S5dRFMfxl5UFuTQpGQ0ODW5SKOIQiuhSSXvR0OAUtjQa+B+4+AeIroKQi7uDUPRryBQkI/oBGujgIDgo
-        58t5vtwevmm9l3ufe+75nM9z7r20ZhjvsIDOevAserCEDxjHS3zHc7TXN5dcxQx+5OaLRaw7nWziXrHe
-        5Am+YhbX6sGCIbzBCm6VgZO03FcutuASnuEYc2VgHw+wnVa7ymAygo9ZfbqVQHA5//9n9uMKbqZonMjd
-        3PfobwIVN7CIL/iGyVpTzxWoWMZYffF/BOI+jBbfMV/DIXZwvwr8i0CMW3mUcaEGsYGJCIbAi2xiSSkQ
-        lSM52M2xH29jch3zedOatmoCv7NyJMe9OcCFuvsBrGMVvSkQTXyKo7QdRHJwG6+L/AZteJxN2sMvvMIU
-        Pqft2HMHn2qO/6AjX2K8yIqHeJ8OonIj+RQAeErurKR/YwAAAABJRU5ErkJggg==
-</value>
-  </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
