@@ -44,6 +44,18 @@ namespace negocio {
             } catch { throw; } finally { datos.cerrarConexion(); }
         }
 
+        public int contarProductosRelacionados(int id) {
+            AccesoDatos datos = new AccesoDatos();
+            try {
+                datos.setearConsulta($"SELECT COUNT(*) FROM ARTICULOS WHERE IdCategoria = {id}");
+                datos.ejecutarLectura();
+                if (datos.Lector.Read()) {
+                    return (int)datos.Lector[0];
+                }
+                return 0;
+            } catch { throw; } finally { datos.cerrarConexion(); }
+        }
+
         public void eliminar(int id) {
             AccesoDatos datos = new AccesoDatos();
             try {

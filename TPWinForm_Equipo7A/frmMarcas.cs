@@ -39,13 +39,20 @@ namespace TPWinForm_Equipo7A {
                 return;
             }
             Marca marca = (Marca)dgvMarcas.CurrentRow.DataBoundItem;
+            MarcaNegocio negocio = new MarcaNegocio();
+            
+            int cantidadProductos = negocio.contarProductosRelacionados(marca.Id);
+            if (cantidadProductos > 0) {
+                MessageBox.Show($"No se puede eliminar la marca '{marca.Descripcion}'.\nHay {cantidadProductos} producto(s) usando esta marca.\nReasigne o elimine esos productos primero.", "No se puede eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (MessageBox.Show($"¿Eliminar la marca '{marca.Descripcion}'?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes) {
                 try {
-                    MarcaNegocio negocio = new MarcaNegocio();
                     negocio.eliminar(marca.Id);
                     cargar();
                 } catch (Exception ex) {
-                    MessageBox.Show("No se pudo eliminar. Puede que esté en uso.\n" + ex.Message);
+                    MessageBox.Show("Error al eliminar: " + ex.Message);
                 }
             }
         }

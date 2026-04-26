@@ -39,13 +39,20 @@ namespace TPWinForm_Equipo7A {
                 return;
             }
             Categoria categoria = (Categoria)dgvCategorias.CurrentRow.DataBoundItem;
+            CategoriaNegocio negocio = new CategoriaNegocio();
+            
+            int cantidadProductos = negocio.contarProductosRelacionados(categoria.Id);
+            if (cantidadProductos > 0) {
+                MessageBox.Show($"No se puede eliminar la categoría '{categoria.Descripcion}'.\nHay {cantidadProductos} producto(s) usando esta categoría.\nReasigne o elimine esos productos primero.", "No se puede eliminar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             if (MessageBox.Show($"¿Eliminar la categoría '{categoria.Descripcion}'?", "Confirmar", MessageBoxButtons.YesNo) == DialogResult.Yes) {
                 try {
-                    CategoriaNegocio negocio = new CategoriaNegocio();
                     negocio.eliminar(categoria.Id);
                     cargar();
                 } catch (Exception ex) {
-                    MessageBox.Show("No se pudo eliminar. Puede que esté en uso.\n" + ex.Message);
+                    MessageBox.Show("Error al eliminar: " + ex.Message);
                 }
             }
         }
